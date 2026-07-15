@@ -1,0 +1,36 @@
+/* Selectores*/
+/* 
+selector {
+    propiedad: valor;
+    propiedad1: valor1;
+    propiedad2: valor2;
+}   
+*/
+
+/*Selector universal: Aplica estilos a todos los elementos de la página*/
+* {
+    background-color: #000000;
+}
+
+/* Selector de etiqueta: Aplica estilos a todos los elementos de una etiqueta/tipo específico*/
+body {
+    background-color: #8b8b8b;
+}
+p {
+    background-color: #ff0000;
+}
+h1{
+    color: red;
+}
+
+/* Selector de clase: Aplica estilos a todos los elementos que tienen una clase específica*/
+.content-section {
+    background-color: #ffff00;
+}
+/* Selector de ID: Aplica estilos a un elemento con un ID específico*/
+#content-footer {
+    background-color: #f700ff;
+}
+#content-main{
+    background-color: #ff8c00;
+}
