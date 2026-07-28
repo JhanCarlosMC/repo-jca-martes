@@ -1,0 +1,66 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: green;
+}
+
+div {
+    border: 2px solid black;
+}
+
+#contenedor-principal {
+    width: 1000px;
+    height: 700px;
+    display: flex;
+    flex-direction: row;
+    /*Direccion de los elementos*/
+    flex-wrap: wrap;
+    /*Salto de linea*/
+    justify-content: flex-start;
+    /*Ajusta los elementos segun el eje principal 
+                - inicialmente es Horizontal*/
+    align-items: flex-start;
+    /* Ajusta los elementos segun el eje secundario 
+                - inicialmente Vertical*/
+}
+
+.caja {
+    width: 100px;
+    height: 100px;
+}
+
+#uno {
+    background-color: red;
+}
+
+#dos {
+    background-color: blue;
+    order: -1;
+}
+
+@media (max-width: 740px){
+
+    *{
+        background-color: aquamarine;
+    }
+
+    #uno {
+        background-color: rgb(255, 0, 225);
+    }
+
+    #contenedor-principal {
+    width: 700px;
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 480px) {
+    *{
+        background-color: rgb(153, 165, 161);
+    }
+
+    #uno {
+        background-color: rgb(0, 255, 106);
+    }
+}

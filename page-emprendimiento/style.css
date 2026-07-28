@@ -1,12 +1,326 @@
+/* ============================================================
+   ESTILOS - LA MARTEJA
+   Organizado por bloques de clase para facilitar la explicación
+   en vivo. Cada bloque corresponde a un tema de la guía de mentoría.
+   ============================================================ */
 
-* {
-    margin:0;
-    padding:0;
-    box-sizing: border-box;
+
+/* ============================================================
+   BLOQUE 1: SELECTORES CSS
+   - Selector de etiqueta (elemento): body, h1, a...
+   - Selector de clase: .nombre-clase
+   - Selector de ID: #nombre-id
+   - Pseudo-clase: a:hover
+   - Selector descendiente: nav ul li
+   ============================================================ */
+
+/* Selector universal: reinicia márgenes/rellenos de TODO (lo usamos también en Bloque 2) */
+* {                         /* Selector: aplica a TODOS los elementos del HTML */
+    margin: 0;              /* Elimina el margen externo de todos los elementos */
+    padding: 0;             /* Elimina el relleno interno de todos los elementos */
+    box-sizing: border-box; /* Box Model: el padding y borde ya no suman al ancho total */
 }
 
-body {
-    color: #000000;
-    background-color: #ffffff;
-    line-height: 1.6;
+/* Selector de etiqueta: aplica a todos los <body> */
+body {                           /* Selector: etiqueta body - estilos globales de la página */
+    font-family: 'Nunito Sans', sans-serif; /* Fuente para todo el texto */
+    color: var(--color-texto);   /* Color del texto usando variable CSS */
+    background-color: var(--color-fondo); /* Color de fondo usando variable CSS */
+    line-height: 1.6;            /* Interlineado: 1.6 veces el tamaño de fuente */
+}
+
+/* Selector de etiqueta para todos los títulos h1, h2, h3 */
+h1, h2, h3 {                 /* Selector: múltiples etiquetas de título a la vez */
+    font-family: 'Poppins', sans-serif; /* Fuente diferente para los títulos */
+    color: var(--color-primario); /* Color verde para los títulos */
+}
+
+/* Selector descendiente: solo los <a> que están dentro de un <nav> */
+nav a {                      /* Selector: solo los enlaces que están dentro del nav */
+    text-decoration: none;  /* Quita el subrayado de los enlaces */
+    color: white;            /* Color blanco para el texto del enlace */
+    font-weight: 600;        /* Grosor de fuente semi-negrita */
+}
+
+/* Pseudo-clase :hover -> cambia el estilo cuando el mouse pasa por encima */
+nav a:hover {                /* Selector: enlaces del nav al pasar el mouse */
+    color: var(--color-acento); /* Cambia a color amarillo cálido */
+}
+
+/* Selector de ID: aplica solo a la sección con id="contacto" */
+#contacto {                  /* Selector: ID único - solo el elemento con id="contacto" */
+    text-align: center;      /* Centra el texto horizontalmente */
+}
+
+
+/* ============================================================
+   BLOQUE 2: MODELO DE CAJA (BOX MODEL)
+   content -> padding -> border -> margin
+   ============================================================ */
+
+section {                     /* Selector: todas las secciones del HTML */
+    padding: 60px 8%;         /* Espacio interno: 60px arriba/abajo, 8% a los lados */
+    max-width: 1100px;        /* Ancho máximo para contenido muy grande */
+    margin: 0 auto;           /* Centrado: 0 arriba/abajo, auto a los lados */
+}
+
+.tarjeta {                    /* Selector: elementos con clase="tarjeta" */
+    background-color: white; /* Fondo blanco para la tarjeta */
+    border: 1px solid #e4ddd2; /* Borde sólido de 1px color beige */
+    border-radius: 12px;      /* Bordes redondeados de 12px */
+    padding: 20px;             /* Espacio interno dentro de la tarjeta */
+    margin-bottom: 10px;      /* Margen inferior para separar tarjetas */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06); /* Sombra suave: 0 desplazamiento X, 4px Y, 10px difusión */
+}
+
+.tarjeta-destacada {         /* Selector: tarjetas destacadas */
+    border: 2px solid var(--color-secundario); /* Borde más grueso (2px) color naranja */
+}
+
+img {                         /* Selector: todas las imágenes */
+    width: 100%;              /* Ocupa todo el ancho disponible */
+    height: 200px;            /* Alto fijo de 200px */
+    display: block;          /* Se comporta como bloque (evita espacio extra abajo) */
+    background-color: #e4ddd2; /* Color de fondo mientras carga la imagen */
+    object-fit: cover;        /* La imagen cubre el espacio sin deformarse */
+    border-radius: 8px;       /* Bordes ligeramente redondeados */
+}
+
+.imagen-ancha {               /* Selector: imágenes con clase="imagen-ancha" */
+    height: 280px;            /* Alto mayor de 280px */
+    margin-top: 20px;         /* Margen superior de 20px */
+}
+
+
+/* ============================================================
+   BLOQUE 3: COLORES Y TIPOGRAFÍA
+   - Variables CSS (custom properties) en :root
+   - Paleta inspirada en Salento: verde montaña, puertas de colores, tierra
+   ============================================================ */
+
+:root {                               /* Selector: define variables globales */
+    --color-primario: #2f6b4f;      /* Variable: verde montaña - color principal */
+    --color-secundario: #e0703b;    /* Variable: naranja - color secundario */
+    --color-acento: #f4a259;         /* Variable: amarillo cálido - para detalles */
+    --color-fondo: #faf7f2;          /* Variable: crema - fondo de página */
+    --color-texto: #2b2b2b;          /* Variable: gris oscuro - texto principal */
+}
+
+h1 {                           /* Selector: título principal */
+    font-size: 2.6rem;         /* Tamaño de fuente: 2.6 veces el tamaño base */
+}
+
+h2 {                           /* Selector: subtítulos */
+    font-size: 1.9rem;         /* Tamaño de fuente: 1.9 veces el tamaño base */
+    margin-bottom: 20px;       /* Espacio debajo del subtítulo */
+    border-bottom: 3px solid var(--color-secundario); /* Línea inferior naranja de 3px */
+    display: inline-block;     /* El borde solo abarca el ancho del texto */
+    padding-bottom: 6px;       /* Espacio entre texto y borde inferior */
+}
+
+h3 {                           /* Selector: títulos de nivel 3 */
+    font-size: 1.2rem;         /* Tamaño de fuente: 1.2 veces el tamaño base */
+    margin-bottom: 10px;       /* Espacio debajo del título */
+}
+
+p {                            /* Selector: todos los párrafos */
+    margin-bottom: 14px;       /* Espacio entre párrafos */
+}
+
+.puntuacion {                  /* Selector: elementos con clase="puntuacion" */
+    font-weight: 600;          /* Texto en semi-negrita */
+    color: var(--color-primario); /* Color verde */
+}
+
+.autor {                       /* Selector: elementos con clase="autor" */
+    font-style: italic;        /* Texto en cursiva */
+    color: var(--color-secundario); /* Color naranja */
+    font-weight: 600;          /* Semi-negrita */
+}
+
+
+/* ============================================================
+   BLOQUE 4: FLEXBOX (diseño en una dimensión: fila o columna)
+   ============================================================ */
+
+.header-principal {           /* Selector: header principal */
+    background-color: var(--color-primario); /* Fondo verde */
+    padding: 0;                /* Sin relleno */
+}
+
+.header-imagen {               /* Selector: imagen del header */
+    height: 260px;             /* Altura fija del banner */
+    border-radius: 0;          /* Sin bordes redondeados */
+}
+
+.header-texto {                /* Selector: contenedor de texto del header */
+    text-align: center;        /* Centrado horizontal del texto */
+    color: white;              /* Texto en blanco */
+    padding: 20px 8%;          /* Relleno de 20px arriba/abajo, 8% lados */
+}
+
+.header-texto h1 {             /* Selector: h1 dentro del header */
+    color: white;              /* Sobrescribe el color verde original por blanco */
+}
+
+/* NAV como fila flexible, centrada, con espacio uniforme entre elementos */
+.nav-principal ul {            /* Selector: lista del menú de navegación */
+    display: flex;             /* Activa Flexbox - elementos en fila */
+    flex-wrap: wrap;           /* Permite saltar de línea si no hay espacio */
+    justify-content: center;   /* Centra los elementos horizontalmente */
+    gap: 24px;                 /* Espacio de 24px entre items */
+    list-style: none;          /* Quita los puntos de la lista */
+    background-color: var(--color-secundario); /* Fondo naranja */
+    padding: 16px 8%;          /* Relleno 16px vertical, 8% horizontal */
+}
+
+/* Galería de fotos de cada apartamento: fila flexible con espacio entre imágenes */
+.galeria {                     /* Selector: galería de imágenes */
+    display: flex;             /* Activa Flexbox */
+    gap: 10px;                 /* Espacio entre imágenes */
+    margin-top: 12px;          /* Margen superior */
+}
+
+.galeria img {                 /* Selector: imágenes dentro de galería */
+    flex: 1;                   /* Se reparten el espacio disponible por igual */
+    height: 130px;             /* Altura fija de 130px */
+}
+
+/* Footer como fila flexible: texto a un lado, enlaces al otro */
+.footer-principal {            /* Selector: footer principal */
+    display: flex;             /* Activa Flexbox */
+    flex-wrap: wrap;           /* Permite cambio de línea en pantallas pequeñas */
+    justify-content: space-between; /* Separación máxima entre lados */
+    align-items: center;       /* Centrado vertical */
+    gap: 12px;                 /* Espacio entre elementos */
+    background-color: var(--color-texto); /* Fondo gris oscuro */
+    color: white;              /* Texto blanco */
+    padding: 24px 8%;          /* Relleno 24px vertical, 8% horizontal */
+}
+
+.footer-principal ul {         /* Selector: lista dentro del footer */
+    display: flex;             /* Flexbox para enlaces */
+    gap: 20px;                 /* Espacio entre enlaces */
+    list-style: none;          /* Sin puntos */
+}
+
+.footer-principal a {          /* Selector: enlaces del footer */
+    color: white;              /* Color blanco */
+    text-decoration: none;     /* Sin subrayado */
+}
+
+.footer-principal a:hover {    /* Selector: enlaces al pasar mouse */
+    color: var(--color-acento); /* Cambia a amarillo cálido */
+}
+
+
+/* ============================================================
+   BLOQUE 5: CSS GRID (diseño en dos dimensiones: filas Y columnas)
+   ============================================================ */
+
+/* Tarjetas de apartamentos en cuadrícula que se auto-ajusta según el ancho disponible */
+.grid-apartamentos {          /* Selector: grid de apartamentos */
+    display: grid;            /* Activa CSS Grid */
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); /* Columnas auto: mín 260px, se ajustan */
+    gap: 24px;                /* Espacio entre tarjetas */
+    margin-top: 20px;         /* Margen superior */
+}
+
+/* Tarjetas de opiniones en cuadrícula de 3 columnas iguales */
+.grid-opiniones {             /* Selector: grid de opiniones */
+    display: grid;            /* Activa CSS Grid */
+    grid-template-columns: repeat(3, 1fr); /* 3 columnas de igual ancho */
+    gap: 20px;                /* Espacio entre opiniones */
+    margin-top: 20px;         /* Margen superior */
+}
+
+.opinion {                    /* Selector: cada opinión */
+    background-color: white; /* Fondo blanco */
+    border-left: 4px solid var(--color-primario); /* Borde lateral verde 4px */
+    border-radius: 8px;       /* Bordes redondeados */
+    padding: 18px;             /* Relleno interno */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); /* Sombra muy suave */
+}
+
+/* Columnas de la sección "Servicios y Políticas" */
+.columnas-servicios {         /* Selector: grid de servicios */
+    display: grid;            /* Activa CSS Grid */
+    grid-template-columns: 1fr 1fr; /* 2 columnas de igual ancho */
+    gap: 40px;                /* Espacio entre columnas */
+    margin-top: 16px;         /* Margen superior */
+}
+
+.lista-comodidades {          /* Selector: lista de comodidades */
+    margin: 16px 0 0 20px;    /* Margen: 16px arriba, 0 derecha, 0 abajo, 20px izquierda */
+}
+
+.boton-reserva {              /* Selector: botón de reserva */
+    display: inline-block;    /* Se comporta como bloque pero en línea */
+    background-color: var(--color-secundario); /* Fondo naranja */
+    color: white;             /* Texto blanco */
+    text-decoration: none;    /* Sin subrayado */
+    font-weight: 600;         /* Semi-negrita */
+    padding: 14px 28px;       /* Relleno: 14px vertical, 28px horizontal */
+    border-radius: 8px;       /* Bordes redondeados */
+    margin-top: 10px;         /* Margen superior */
+    transition: background-color 0.2s ease; /* Animación suave del color */
+}
+
+.boton-reserva:hover {        /* Selector: botón al pasar mouse */
+    background-color: var(--color-primario); /* Cambia a verde */
+}
+
+
+/* ============================================================
+   BLOQUE 6: MEDIA QUERIES (diseño responsivo)
+   Ajustamos el layout cuando la pantalla se hace más pequeña.
+   ============================================================ */
+
+/* Tablets: 768px o menos */
+@media (max-width: 768px) {    /* Condición: pantallas hasta 768px (tablets) */
+
+    h1 {                        /* Selector: títulos h1 */
+        font-size: 2rem;        /* Reduce de 2.6rem a 2rem */
+    }
+
+    .nav-principal ul {        /* Selector: menú de navegación */
+        gap: 14px;              /* Reduce espacio de 24px a 14px */
+        font-size: 0.9rem;      /* Reduce tamaño de fuente */
+    }
+
+    .grid-opiniones {          /* Selector: grid de opiniones */
+        grid-template-columns: repeat(2, 1fr); /* Pasa de 3 a 2 columnas */
+    }
+
+    .columnas-servicios {      /* Selector: grid de servicios */
+        grid-template-columns: 1fr; /* Las columnas se apilan en una */
+        gap: 24px;              /* Reduce espacio de 40px a 24px */
+    }
+}
+
+/* Celulares: 480px o menos */
+@media (max-width: 480px) {    /* Condición: pantallas hasta 480px (celulares) */
+
+    section {                   /* Selector: todas las secciones */
+        padding: 40px 6%;      /* Reduce padding: 40px vertical, 6% horizontal */
+    }
+
+    .nav-principal ul {        /* Selector: menú de navegación */
+        flex-direction: column; /* Cambia de fila a columna (menú vertical) */
+        align-items: center;    /* Centra los items */
+        gap: 10px;              /* Reduce espacio a 10px */
+    }
+
+    .grid-apartamentos {       /* Selector: grid de apartamentos */
+        grid-template-columns: 1fr; /* Una sola columna */
+    }
+
+    .grid-opiniones {          /* Selector: grid de opiniones */
+        grid-template-columns: 1fr; /* Una sola columna */
+    }
+
+    .footer-principal {        /* Selector: footer */
+        flex-direction: column; /* Cambia de fila a columna */
+        text-align: center;     /* Centra el texto */
+    }
 }
